@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teste de Segurança para Pequenas Empresas</title>
+<meta name="description" content="Teste gratuito de 3 minutos: descubra o quanto o seu negócio está protegido contra invasões, golpes e perda de dados. Por Facuss Urbano.">
+<meta property="og:title" content="O seu negócio está seguro? — Teste grátis em 3 minutos">
+<meta property="og:description" content="15 perguntas, uma pontuação e um plano concreto para proteger a sua empresa. Por Facuss Urbano, Técnico Superior em Segurança da Informação.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#f5f7f6; --card:#ffffff; --ink:#0f1a17; --muted:#5b6b66; --line:#dde5e2;
+--brand:#0e8a6a; --brand-ink:#ffffff; --brand-soft:#e2f3ee;
+--ok:#1f9d55; --mid:#d49a00; --bad:#d64545;
+--shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+}
+@media (prefers-color-scheme: dark){
+:root:not([data-theme="light"]){
+--bg:#0b1110; --card:#121b19; --ink:#e8f0ed; --muted:#93a59f; --line:#22302c;
+--brand:#2fc497; --brand-ink:#04110d; --brand-soft:#12312a;
+--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+}
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto;padding:24px 16px 56px}
+h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.15;margin:0}
+h1{font-size:clamp(28px,6vw,40px);letter-spacing:-.02em}
+h2{font-size:22px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--brand);background:var(--brand-soft);padding:6px 12px;border-radius:999px;margin-bottom:16px}
+.lead{color:var(--muted);font-size:17px;margin:14px 0 24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.btn{appearance:none;border:0;cursor:pointer;font:600 16px Inter,sans-serif;padding:14px 22px;border-radius:12px;background:var(--brand);color:var(--brand-ink);text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .08s,opacity .2s}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.block{width:100%}
+.btn[disabled]{opacity:.4;cursor:not-allowed}
+.facts{display:flex;flex-wrap:wrap;gap:10px 18px;margin:18px 0 0;padding:0;list-style:none;color:var(--muted);font-size:14px}
+.facts li::before{content:"✓ ";color:var(--brand);font-weight:700}
+.author{display:flex;gap:12px;align-items:center;margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font:700 15px "Space Grotesk",sans-serif;flex:none}
+.hidden{display:none!important}
+.progress{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin:6px 0 20px}
+.progress>i{display:block;height:100%;width:0;background:var(--brand);transition:width .3s}
+.meta{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.area-tag{font-weight:600;color:var(--brand)}
+.q{font-size:20px;font-weight:600;margin:4px 0 8px;font-family:"Space Grotesk",Inter,sans-serif}
+.hint{color:var(--muted);font-size:14px;margin:0 0 18px}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;width:100%;cursor:pointer;background:var(--card);color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font:500 16px Inter,sans-serif;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--brand)}
+.opt.sel{border-color:var(--brand);background:var(--brand-soft)}
+.nav{display:flex;gap:10px;margin-top:20px}
+.nav .btn{flex:1}
+.score{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ring{--p:0;--c:var(--brand);width:120px;height:120px;border-radius:50%;flex:none;background:conic-gradient(var(--c) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center}
+.ring>div{width:94px;height:94px;border-radius:50%;background:var(--card);display:grid;place-items:center;font:700 30px "Space Grotesk",sans-serif}
+.level{font-size:24px}
+.bars{display:grid;gap:14px;margin-top:6px}
+.bar-row .top{display:flex;justify-content:space-between;font-size:14px;margin-bottom:6px}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar>i{display:block;height:100%;border-radius:99px}
+.bundle{background:var(--brand);color:var(--brand-ink);border:0}
+.bundle p{color:var(--brand-ink);opacity:.92}
+.bundle .btn{background:var(--brand-ink);color:var(--brand)}
+.small{font-size:13px;color:var(--muted)}
+.stack>*+*{margin-top:18px}
+ul.quick{margin:8px 0 0;padding-left:20px}
+ul.quick li{margin:6px 0}
+ul.inc{margin:6px 0 16px;padding-left:20px}
+ul.inc li{margin:4px 0}
+footer{text-align:center;font-size:13px;color:var(--muted);margin-top:36px}
+footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="intro">
+<span class="eyebrow">🛡️ Teste gratuito · 3 minutos</span>
+<h1>O seu negócio está seguro?</h1>
+<p class="lead">Responda 15 perguntas simples e receba a pontuação de segurança da sua empresa, os pontos fracos e um plano concreto para corrigi-los.</p>
+<div class="card">
+<button class="btn block" id="start">Começar o teste →</button>
+<ul class="facts">
+<li>Sem cadastro</li>
+<li>Nenhum dado é salvo</li>
+<li>Resultado na hora</li>
+</ul>
+<div class="author">
+<div class="avatar">FU</div>
+<div><strong style="color:var(--ink)">Facuss Urbano</strong><br>Técnico Superior em Segurança da Informação · 20 anos em TI</div>
+</div>
+</div>
+</section>
+
+<section id="quiz" class="hidden">
+<div class="meta"><span class="area-tag" id="qArea"></span><span id="qCount"></span></div>
+<div class="progress"><i id="bar"></i></div>
+<div class="card">
+<p class="q" id="qText"></p>
+<p class="hint" id="qHint"></p>
+<div class="opts" id="opts"></div>
+<div class="nav">
+<button class="btn ghost" id="back">← Voltar</button>
+<button class="btn" id="next" disabled>Próxima →</button>
+</div>
+</div>
+</section>
+
+<section id="result" class="hidden stack">
+<div class="card">
+<div class="score">
+<div class="ring" id="ring"><div id="scoreNum">0</div></div>
+<div>
+<div class="small">O seu nível de segurança</div>
+<h2 class="level" id="levelTitle"></h2>
+<p class="small" id="levelText" style="margin:6px 0 0"></p>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2 style="margin-bottom:16px">O seu resultado por área</h2>
+<div class="bars" id="bars"></div>
+</div>
+
+<div class="card">
+<h2>O que fazer primeiro</h2>
+<ul class="quick" id="quick"></ul>
+</div>
+
+<div class="card bundle">
+<h2 style="margin:0 0 6px">Blinde as contas do seu negócio</h2>
+<p style="margin:0 0 8px">Guia prático, passo a passo, para proteger em 7 dias as contas que fazem o seu negócio funcionar:</p>
+<ul class="inc">
+<li>E-mail, Instagram, Facebook e WhatsApp Business</li>
+<li>Banco, Pix e plataformas de venda</li>
+<li>Gerenciador de senhas e verificação em duas etapas</li>
+<li>Acessos da equipe: entradas e saídas sem riscos</li>
+</ul>
+<a class="btn block" id="guideLink" target="_blank" rel="noopener">Quero o guia →</a>
+</div>
+
+<div style="display:flex;gap:10px;flex-wrap:wrap">
+<button class="btn ghost" id="share">Compartilhar o teste</button>
+<button class="btn ghost" id="retry">Fazer de novo</button>
+</div>
+</section>
+
+<footer>
+Feito por <strong>Facuss Urbano</strong> · <a href="https://facussurbano-facuss.github.io/evaluador-seguridad-pymes/" target="_blank" rel="noopener">Versão em espanhol</a> · <a id="footIg" target="_blank" rel="noopener">Instagram</a><br>
+Este teste é orientativo e não substitui uma auditoria profissional.
+</footer>
+</div>
+
+<script>
+/* ============ CONFIGURAÇÃO ============ */
+const CONFIG = {
+guide: "https://go.hotmart.com/X108355221N",
+instagram: "https://instagram.com/facuss.digital"
+};
+/* ====================================== */
+
+const AREAS = {
+accesos: "Acessos e senhas",
+backups: "Cópias de segurança",
+personas: "Pessoas e golpes",
+incidentes: "Resposta a incidentes",
+gestion: "Gestão e equipamentos"
+};
+
+const Q = [
+{a:"accesos", t:"Cada pessoa usa o seu próprio usuário e senha?", h:"Ou existem contas compartilhadas, como “caixa” ou “admin”, usadas por várias pessoas.", fix:"Crie um usuário por pessoa e elimine as contas compartilhadas."},
+{a:"accesos", t:"A verificação em duas etapas está ativada no e-mail, no banco e nas redes do negócio?", h:"O código por SMS ou aplicativo além da senha.", fix:"Ative hoje a verificação em duas etapas no e-mail principal e no internet banking."},
+{a:"accesos", t:"Vocês usam senhas diferentes e longas, ou um gerenciador de senhas?", h:"Repetir a mesma senha é a principal causa de contas roubadas.", fix:"Instale um gerenciador de senhas e troque primeiro as senhas repetidas."},
+{a:"accesos", t:"Quando alguém sai da empresa, todos os acessos são removidos no mesmo dia?", h:"E-mail, sistemas, redes sociais, Wi-Fi, maquininha, contas de pagamento etc.", fix:"Faça uma lista de todos os acessos para removê-los quando alguém sair."},
+
+{a:"backups", t:"Vocês fazem cópias de segurança das informações importantes?", h:"Notas fiscais, clientes, planilhas, fotos de produtos.", fix:"Configure um backup automático das pastas críticas nesta semana."},
+{a:"backups", t:"Alguma cópia fica fora do local ou na nuvem?", h:"Em caso de roubo ou incêndio, as cópias no mesmo lugar também se perdem.", fix:"Guarde uma cópia fora do local ou na nuvem."},
+{a:"backups", t:"Vocês já testaram recuperar dados a partir de um backup?", h:"Um backup nunca testado pode não funcionar no dia em que você precisar.", fix:"Faça um teste de recuperação de um arquivo todo mês."},
+
+{a:"personas", t:"A sua equipe sabe reconhecer e-mails, mensagens ou links falsos?", h:"Phishing: mensagens que imitam o banco, a Receita Federal, um fornecedor ou um cliente.", fix:"Faça uma conversa de 15 minutos com exemplos reais de golpes."},
+{a:"personas", t:"Vocês confirmam por outro canal antes de pagar ou mudar os dados bancários de um fornecedor?", h:"O golpe do “mudamos a chave Pix” é um dos mais comuns.", fix:"Confirme por telefone qualquer mudança de dados bancários antes de pagar."},
+{a:"personas", t:"Vocês conferem se o comprovante de pagamento é real antes de entregar a mercadoria?", h:"Comprovantes de Pix falsos são feitos em segundos.", fix:"Confira se o dinheiro caiu na conta antes de entregar."},
+
+{a:"incidentes", t:"Vocês sabem o que fazer e para quem ligar em caso de invasão?", h:"Por exemplo, se roubarem o WhatsApp do negócio ou criptografarem o computador.", fix:"Escreva em uma folha os passos e contatos para um caso de invasão."},
+{a:"incidentes", t:"Vocês sabem quais sistemas e dados são críticos para continuar trabalhando?", h:"Aquilo que, se cair, para o negócio.", fix:"Liste os 5 sistemas ou dados sem os quais você não consegue trabalhar."},
+
+{a:"gestion", t:"Os computadores estão com o sistema e o antivírus atualizados?", h:"As atualizações fecham as brechas que os atacantes usam.", fix:"Ative as atualizações automáticas em todos os computadores."},
+{a:"gestion", t:"O Wi-Fi dos clientes é separado do que o negócio usa?", h:"Compartilhar a rede deixa os seus equipamentos ao alcance de qualquer um.", fix:"Crie uma rede Wi-Fi de visitantes separada da rede do negócio."},
+{a:"gestion", t:"Existem regras escritas sobre o uso de equipamentos, contas e informações?", h:"Mesmo que seja uma página: o que pode e o que não pode.", fix:"Escreva uma política simples de uma página e peça para todos assinarem."}
+];
+
+const OPTS = [
+{l:"Sim, sempre", v:2},
+{l:"Às vezes / em parte", v:1},
+{l:"Não", v:0},
+{l:"Não sei", v:0}
+];
+
+const $ = id => document.getElementById(id);
+let i = 0, ans = new Array(Q.length).fill(null);
+
+function show(sec){
+["intro","quiz","result"].forEach(s => $(s).classList.toggle("hidden", s!==sec));
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function render(){
+const q = Q[i];
+$("qArea").textContent = AREAS[q.a];
+$("qCount").textContent = `${i+1} de ${Q.length}`;
+$("bar").style.width = `${(i/Q.length)*100}%`;
+$("qText").textContent = q.t;
+$("qHint").textContent = q.h;
+$("opts").innerHTML = "";
+OPTS.forEach((o,k) => {
+const b = document.createElement("button");
+b.className = "opt" + (ans[i]===k ? " sel" : "");
+b.textContent = o.l;
+b.onclick = () => { ans[i]=k; render(); setTimeout(next, 220); };
+$("opts").appendChild(b);
+});
+$("back").style.visibility = i===0 ? "hidden" : "visible";
+$("next").disabled = ans[i]===null;
+$("next").textContent = i===Q.length-1 ? "Ver resultado →" : "Próxima →";
+}
+
+function next(){
+if(ans[i]===null) return;
+if(i < Q.length-1){ i++; render(); } else results();
+}
+
+function color(p){ return p>=75 ? "var(--ok)" : p>=45 ? "var(--mid)" : "var(--bad)"; }
+
+function results(){
+const total = Q.reduce((s,q,k)=>s+OPTS[ans[k]].v,0);
+const pct = Math.round(total/(Q.length*2)*100);
+
+const byArea = {};
+Q.forEach((q,k)=>{ (byArea[q.a] ||= {s:0,m:0}); byArea[q.a].s += OPTS[ans[k]].v; byArea[q.a].m += 2; });
+const areas = Object.keys(byArea).map(a=>({a, p:Math.round(byArea[a].s/byArea[a].m*100)})).sort((x,y)=>x.p-y.p);
+
+const ring = $("ring");
+ring.style.setProperty("--c", color(pct));
+let n=0; const t=setInterval(()=>{ n=Math.min(pct,n+2); ring.style.setProperty("--p",n); $("scoreNum").textContent=n; if(n>=pct) clearInterval(t); },16);
+
+const lv = pct>=75 ? ["Bem protegido","Você tem uma base sólida. Ainda há detalhes que vale a pena ajustar antes que virem um problema."]
+: pct>=45 ? ["Risco moderado","Você fez coisas certas, mas há portas abertas que os atacantes procuram todos os dias."]
+: ["Risco alto","O seu negócio está exposto. A boa notícia: as correções mais importantes são simples e baratas."];
+$("levelTitle").textContent = lv[0];
+$("levelTitle").style.color = color(pct);
+$("levelText").textContent = lv[1];
+
+$("bars").innerHTML = areas.map(x=>`
+<div class="bar-row"><div class="top"><span>${AREAS[x.a]}</span><strong>${x.p}%</strong></div>
+<div class="bar"><i style="width:${x.p}%;background:${color(x.p)}"></i></div></div>`).join("");
+
+const weak = Q.map((q,k)=>({q,v:OPTS[ans[k]].v})).filter(x=>x.v<2).sort((x,y)=>x.v-y.v).slice(0,3);
+$("quick").innerHTML = weak.length ? weak.map(x=>`<li>${x.q.fix}</li>`).join("")
+: "<li>Excelente! Mantenha as boas práticas e revise-as a cada 6 meses.</li>";
+
+show("result");
+}
+
+$("start").onclick = ()=>{ i=0; show("quiz"); render(); };
+$("next").onclick = next;
+$("back").onclick = ()=>{ if(i>0){ i--; render(); } };
+$("retry").onclick = ()=>{ ans.fill(null); i=0; show("intro"); };
+$("share").onclick = async ()=>{
+const data = {title:"O seu negócio está seguro?", text:"Fiz este teste grátis de segurança para pequenas empresas, leva 3 minutos:", url:location.href};
+try{ if(navigator.share){ await navigator.share(data); } else { await navigator.clipboard.writeText(location.href); $("share").textContent="Link copiado!"; } }catch(e){}
+};
+
+$("guideLink").href = CONFIG.guide;
+$("footIg").href = CONFIG.instagram;
+</script>
+</body>
+</html>
