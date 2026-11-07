@@ -8,6 +8,8 @@ Funciona inteiramente no seu navegador: nenhum dado é salvo ou enviado.
 
 Guia recomendado: [Blinde as contas do seu negócio](https://go.hotmart.com/X108355221N)
 
+Se já aconteceu: [Fui hackeado, e agora? Protocolo de emergência](https://urbansurge8.gumroad.com/l/uriemq)
+
 ---
 
 Feito por **Facuss Urbano**, Técnico Superior em Segurança da Informação · [Instagram](https://instagram.com/facuss.digital) · [Versão em espanhol](https://facussurbano-facuss.github.io/evaluador-seguridad-pymes/)

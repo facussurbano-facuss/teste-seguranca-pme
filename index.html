@@ -145,6 +145,12 @@ footer a{color:var(--muted)}
 <a class="btn block" id="guideLink" target="_blank" rel="noopener">Quero o guia →</a>
 </div>
 
+<div class="card">
+<h2 style="margin:0 0 6px">Fui hackeado, e agora?</h2>
+<p style="margin:0 0 10px">Protocolo de emergência: o que fazer na primeira hora quando roubam uma conta, infectam um computador ou cai um golpe do Pix. 8 cenários, modelos de aviso e ficha de emergência.</p>
+<a class="btn ghost" id="guide2Link" target="_blank" rel="noopener">Ver o protocolo →</a>
+</div>
+
 <div style="display:flex;gap:10px;flex-wrap:wrap">
 <button class="btn ghost" id="share">Compartilhar o teste</button>
 <button class="btn ghost" id="retry">Fazer de novo</button>
@@ -161,6 +167,7 @@ Este teste é orientativo e não substitui uma auditoria profissional.
 /* ============ CONFIGURAÇÃO ============ */
 const CONFIG = {
 guide: "https://go.hotmart.com/X108355221N",
+guide2: "https://urbansurge8.gumroad.com/l/uriemq",
 instagram: "https://instagram.com/facuss.digital"
 };
 /* ====================================== */
@@ -277,6 +284,7 @@ try{ if(navigator.share){ await navigator.share(data); } else { await navigator.
 };
 
 $("guideLink").href = CONFIG.guide;
+$("guide2Link").href = CONFIG.guide2;
 $("footIg").href = CONFIG.instagram;
 </script>
 </body>
