@@ -8,7 +8,7 @@ Funciona inteiramente no seu navegador: nenhum dado é salvo ou enviado.
 
 Guia recomendado: [Blinde as contas do seu negócio](https://go.hotmart.com/X108355221N)
 
-Se já aconteceu: [Fui hackeado, e agora? Protocolo de emergência](https://urbansurge8.gumroad.com/l/uriemq)
+Se já aconteceu: [Fui hackeado, e agora? Protocolo de emergência](https://facussdigital.gumroad.com/l/uriemq)
 
 ---
 
